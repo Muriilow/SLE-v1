@@ -53,6 +53,7 @@ int main(){
         return -1;
     }
     status = genSymmetricPositive(&SL, &A2, &b2, &timePC); 
+    struct LinearSis SLNew = {&A2, &b2, n, k};
 
     free(av);
     free(bv); //Liberando o vetor A e b pois nao preciso mais deles
@@ -87,9 +88,10 @@ int main(){
     }
 
 
-    status = genPreCond(SL.A, w, SL.n, SL.k, &M, &timeM);
-    status += conjGradientPre(&SL, X, r, norma,&M, maxit, eps, &timeGrad);
+    status = genPreCond(SLNew.A, w, SLNew.n, SLNew.k, &M, &timeM);
+    status += conjGradientPre(&SLNew, X, r, norma,&M, maxit, eps, &timeGrad);
     free(Mv);
+
     if (status < 0){
         free(norma);
         free(X);

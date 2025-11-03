@@ -67,7 +67,7 @@ int genSymmetricPositive(struct LinearSis *SL, struct Matrix *ASP, struct Matrix
 
     genTranspose(&AT, A);
     
-    multMatrix(A, &AT, ASP);
+    multMatrix(&AT, A, ASP);
     multMatrix(&AT, b, bsp);
 
     *time = timestamp() - *time;
