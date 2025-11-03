@@ -150,7 +150,7 @@ int conjGradientPre(struct LinearSis *SL, double *x, double *r,double *norma, st
 
     //Criando a matriz d e c usados para calculos
     for (int i = 0; i < n; i++)
-        d.v[i] = M->v[i] * SL->b->v[i];
+        d.v[i] = y.v[i];
 
     
 
@@ -204,7 +204,7 @@ int conjGradientPre(struct LinearSis *SL, double *x, double *r,double *norma, st
         }
         beta = deltaNew / deltaOld;
         for(uint i = 0; i < n; i++)
-            d.v[i] = r[i] + beta *d.v[i];
+            d.v[i] = y.v[i] + beta *d.v[i];
 
         deltaOld = deltaNew;
 
