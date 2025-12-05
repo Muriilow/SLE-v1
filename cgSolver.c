@@ -119,8 +119,8 @@ int main(){
     printf("%.8g\n", timeGrad);
     printf("%.8g\n", timeRes);
     
-    FILE* timeExec = fopen("timeExec2.txt", "w");
-    FILE* timeResi = fopen("timeRes2.txt", "w");
+    FILE* timeExec = fopen("timeExec1.txt", "w");
+    FILE* timeResi = fopen("timeRes1.txt", "w");
 
     if (!timeExec || !timeRes) {
         printf("Erro ao abrir o arquivo!\n");
