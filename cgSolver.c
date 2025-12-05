@@ -119,24 +119,28 @@ int main(){
     printf("%.8g\n", timeGrad);
     printf("%.8g\n", timeRes);
     
-    double timeAv = (timeGrad + timeRes) / 2;
+    FILE* timeExec = fopen("timeExec2.txt", "w");
+    FILE* timeResi = fopen("timeRes2.txt", "w");
 
-    FILE* time;
-
-    time = fopen("time.txt", "w");
-    if (time == NULL) {
+    if (!timeExec || !timeRes) {
         printf("Erro ao abrir o arquivo!\n");
         return 1;
     }
     
     // Escrever no arquivo (similar ao printf)
-    fprintf(time, "%.8g\n", timeAv);
+    fprintf(timeExec, "%.8g\n", timeGrad);
+    fprintf(timeResi, "%.8g\n", timeRes);
+
+    LIKWID_MARKER_CLOSE;
+
+    fclose(timeExec);
+    fclose(timeResi);
+
     free(norma);
     free(X);
     free(av1);
     free(bv1);
     free(r);
     
-    LIKWID_MARKER_CLOSE;
     return 0;
 }
