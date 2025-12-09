@@ -111,7 +111,6 @@ int main(){
     LIKWID_MARKER_STOP("RES_1");
     
     printf("%d\n",n);
-    printVetor(X,n);
     double normaR = calcNormaEuclidiana(r, n);
     printf("%.8g\n", *norma);
     printf("%.8g\n", normaR);
